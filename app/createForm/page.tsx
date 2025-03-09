@@ -170,7 +170,7 @@ const page = () => {
                 name="help"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>What Help Do You Need</FormLabel>
+                    <FormLabel>What Do You Want to Study</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="List any challenges you may be having"
