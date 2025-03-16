@@ -2,6 +2,7 @@ import {
   pgTable,
   serial,
   varchar,
+  json,
   boolean,
   uuid,
   timestamp,
@@ -17,12 +18,13 @@ export const USER_TABLE = pgTable("users", {
 export const STUDY_MATERIAL_TABLE = pgTable("studyMaterial", {
   id: serial().primaryKey(),
   worksheetId: uuid().notNull(),
-  grade: varchar().notNull(),
+  gradeLevel: varchar().notNull(),
   subject: varchar().notNull(),
   topic: varchar().notNull(),
-  createdBy: uuid().notNull(), // If referencing users
-  status: varchar().default("Generating"),
-  createdAt: timestamp("created_at").defaultNow(), // Tracks creation time
+  worksheetLayout: json(),
+  createdBy: varchar().notNull(),
+  // status: varchar().default("Generating"),
+  // createdAt: timestamp("created_at").defaultNow(), // Tracks creation time
 });
 
 // npx drizzle-kit push
